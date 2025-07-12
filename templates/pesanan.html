@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Data Pesanan{% endblock %}
+{% block content %}
+<h2>Pesanan Tiket</h2>
+<table border="1" cellpadding="6">
+<tr><th>Nama</th><th>Jumlah</th><th>Tanggal</th><th>Aksi</th></tr>
+{% for p in pesanan %}
+<tr>
+    <td>{{ p.nama }}</td>
+    <td>{{ p.jumlah }}</td>
+    <td>{{ p.tanggal }}</td>
+    <td><a href="{{ url_for('hapus_pesanan', id=p.id) }}">Hapus</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

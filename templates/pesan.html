@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Pesan Tiket - {{ wisata.nama }}{% endblock %}
+{% block content %}
+<div class="card booking-card">
+    <h2><i class="fas fa-ticket-alt"></i> Pesan Tiket</h2>
+    <div class="wisata-info">
+        <h3>{{ wisata.nama }}</h3>
+        <p><i class="fas fa-map-marker-alt"></i> {{ wisata.lokasi }}</p>
+        <p class="price">Rp{{ "{:,}".format(wisata.harga) }} <small>per tiket</small></p>
+    </div>
+    
+    <form method="POST" class="booking-form">
+        <div class="form-group">
+            <label for="nama"><i class="fas fa-user"></i> Nama Pemesan:</label>
+            <input type="text" id="nama" name="nama" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="jumlah"><i class="fas fa-ticket-alt"></i> Jumlah Tiket:</label>
+            <input type="number" id="jumlah" name="jumlah" min="1" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="tanggal"><i class="fas fa-calendar-day"></i> Tanggal Kunjungan:</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-check-circle"></i> Konfirmasi Pesan
+            </button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Batal
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

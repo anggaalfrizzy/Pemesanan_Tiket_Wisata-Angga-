@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Tambah Tempat Wisata - Tiket Wisata{% endblock %}
+{% block content %}
+<div class="card" style="max-width: 800px; margin: 0 auto;">
+    <h2><i class="fas fa-plus-circle"></i> Tambah Tempat Wisata</h2>
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="nama"><i class="fas fa-landmark"></i> Nama Tempat Wisata:</label>
+            <input type="text" id="nama" name="nama" required>
+        </div>
+        <div class="form-group">
+            <label for="lokasi"><i class="fas fa-map-marker-alt"></i> Lokasi:</label>
+            <input type="text" id="lokasi" name="lokasi" required>
+        </div>
+        <div class="form-group">
+            <label for="harga"><i class="fas fa-tag"></i> Harga Tiket:</label>
+            <input type="number" id="harga" name="harga" min="0" required>
+        </div>
+        <div class="form-group">
+            <label for="deskripsi"><i class="fas fa-info-circle"></i> Deskripsi:</label>
+            <textarea id="deskripsi" name="deskripsi" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Simpan
+        </button>
+        <a href="{{ url_for('tempat_wisata') }}" class="btn btn-danger">
+            <i class="fas fa-times"></i> Batal
+        </a>
+    </form>
+</div>
+{% endblock %}
